@@ -9,5 +9,7 @@ package module01
 //   BaseToBase("E", 16, 2) => "1110"
 //
 func BaseToBase(value string, base, newBase int) string {
-	return ""
+	old := BaseToDec(value, base)
+	new := DecToBase(old, newBase)
+	return new
 }
