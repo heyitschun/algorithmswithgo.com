@@ -25,5 +25,33 @@ package module01
 //   Fibonacci(14) => 377
 //
 func Fibonacci(n int) int {
-	return 0
+	if n == 0 {
+		return 0
+	} else if n == 1 {
+		return 1
+	} else {
+		return Fibonacci(n-1) + Fibonacci(n-2)
+	}
+}
+
+// The given solution, while not many lines of code, is inefficient and will
+// be very expensive to run for larger numbers because it is calculating
+// multiple times. Improvements could be using an iterative approach:
+
+func AltFib(n int) int {
+	if n == 0 {
+		return 0
+	} else if n == 1 {
+		return 1
+	} else {
+		nMin1 := 1
+		nMin2 := 0
+		var currentFib int
+		for i := 2; i <= n; i++ {
+			currentFib = nMin1 + nMin2
+			nMin2 = nMin1
+			nMin1 = currentFib
+		}
+		return currentFib
+	}
 }
