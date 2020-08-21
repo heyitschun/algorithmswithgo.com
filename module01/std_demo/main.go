@@ -15,3 +15,7 @@ func main() {
 		fmt.Println(gcd)
 	}
 }
+
+// If you are getting an error running: go run main.go < input.txt > output.txt
+// and you use PowerShell, this is because the `<` operation is not supported
+// in PowerShell (yet). Try using another command line interface.
