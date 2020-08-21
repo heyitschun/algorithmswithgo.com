@@ -35,5 +35,22 @@ package module01
 //    for the sum of 4.
 //
 func FindTwoThatSum(numbers []int, sum int) (int, int) {
-	return 0, 0
+	left := -1
+	right := -1
+	for i, x := range numbers {
+		for _, y := range numbers[i+1:] {
+			if x+y == sum {
+				for k, z := range numbers {
+					if y == z {
+						left = i
+						right = k
+					}
+				}
+			}
+		}
+	}
+	return left, right
 }
+
+// this solution is omega inefficient. it would slow down a lot
+// for larger arrays

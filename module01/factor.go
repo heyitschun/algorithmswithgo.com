@@ -22,5 +22,15 @@ package module01
 //   Factor([], 4) // []int{4}
 //
 func Factor(primes []int, number int) []int {
-	return nil
+	answers := []int{}
+	for i := len(primes) - 1; i >= 0; i-- {
+		for number%primes[i] == 0 {
+			number = number / primes[i]
+			answers = append(answers, primes[i])
+		}
+		// NOTE: if someone were to pass in [1,2,3], this would get stuck in an
+		// inf loop. To improve, use a panic out of the code if the input array
+		// of primes contains a 1.
+	}
+	return answers
 }
